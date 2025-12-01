@@ -86,7 +86,7 @@ Want to know when new React Native tools and guides launch?
 
 ## About
 
-Built by [Marcus Erickson](https://github.com/marcus-erickson), Director of Product at Document Crunch. I ship React Native apps daily and built these tools from real-world pain points.
+Built by [Marcus Erickson](https://github.com/marcus-erickson),Experienced developer and AI coder. I have shipped multiple React Native apps and built these tools from real-world pain points.
 
 Part of [Thunder God Software](https://marcus-erickson.github.io) - developer tools that bridge the gap from AI prototype to production-ready app.
 
