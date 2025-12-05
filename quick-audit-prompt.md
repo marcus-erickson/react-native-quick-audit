@@ -1,84 +1,128 @@
-Quick Project Health Check (QUICK_AUDIT)
-Step 1: Architecture Detection
-Quickly scan the codebase and identify the architecture:
-Look for these indicators:
+Quick Architecture Audit (QUICK_ARCHITECTURE_AUDIT)
+
+Step 1: Platform Detection
+Scan for these indicators to determine mobile platform:
+
+REACT_NATIVE_EXPO:
+- Has `app.json` or `app.config.js` with expo config
+- Dependencies include `expo`, `react-native` 
+- Imports from 'react-native' or 'expo-*' packages
+
+CAPACITOR_WEB:
+- Has `capacitor.config.ts` or `capacitor.config.json`
+- Dependencies include `@capacitor/core`, `@capacitor/cli`
+- Vite/webpack config present
+- React web code (divs, Tailwind classes, etc.)
+
+WEB_ONLY:
+- React + Vite/webpack but no Capacitor config
+- No app.json, no mobile platform folders
+
+UNKNOWN:
+- Mixed indicators or unclear structure
+
+Step 2: Architecture Detection
+Identify data architecture:
 
 Backend folder (server/, api/, backend/) + database calls → UI_BACKEND_DB
 Supabase/Firebase/Clerk imports but no backend folder → UI_REMOTE_DB_NO_BACKEND
 No backend folder, no remote database imports → STANDALONE_UI
 Multiple app folders or workspaces → MONOREPO_OR_MULTI_APP
-Mixed or unclear patterns → UNKNOWN_OR_MIXED
 
-Step 2: Essential Project Setup Checks
-Universal Project Hygiene (All Apps):
+Step 3: Essential Architecture Checks
 
-Version Control - Missing .git folder, no repository initialization
-Project Documentation - No README.md, missing setup instructions
-Environment Configuration - No .env.example, hardcoded config values
-Git Configuration - Missing .gitignore, sensitive files at risk
-Dead Code - Unused dependencies, template leftovers, console logs
-Bundle Optimization - Large unused libraries bloating app size
+Universal Checks (All Platforms):
+1. Version Control - Missing .git folder, no repository initialization
+2. Project Documentation - No README.md, missing setup instructions, missing getting started guide
+3. AI Assistant Configuration 
+   - Check for ANY of these files: `.cursorrules`, `claude.md`, `CLAUDE.md`, `.clinerules`, `.clauderc`
+   - ❌ FAIL if NONE of these files exist
+   - ✅ PASS if ANY of these files exist
+   - Problem: No project-specific prompts or coding guidelines for AI assistants
+   - Risk: Inconsistent code style and architecture as you iterate with AI tools
+4. Environment Configuration - No .env.example, hardcoded config values, missing environment documentation
+5. Git Configuration - Missing .gitignore, sensitive files at risk, build artifacts in repo
+6. Dead Code - Unused dependencies, template leftovers, commented code blocks, console.logs in production code
+7. Bundle Optimization - Large unused libraries bloating app size, unoptimized images
+8. Security Issues - API keys in source code, hardcoded credentials, exposed secrets
+
+Platform-Specific Checks:
+
+REACT_NATIVE_EXPO:
+- Missing TypeScript configuration or JavaScript without type safety
+- No error boundary components for crash handling
+- Missing SafeAreaView or safe area handling
+- Platform-specific code without Platform.OS checks
+- Images not optimized for mobile (large file sizes)
+- No FlatList for scrollable lists (using ScrollView with map instead)
+- Navigation not properly configured
+- Async storage used without error handling
+
+CAPACITOR_WEB:
+- Missing or incomplete `capacitor.config.ts`
+- Web app not optimized for mobile viewport (no viewport meta tag)
+- Touch targets smaller than 44x44px
+- No responsive design breakpoints
+- Missing mobile-first CSS approach
+- Web fonts not optimized for mobile loading
+
+WEB_ONLY:
+- No mobile platform consideration (mention this is web-only)
+- Missing responsive design patterns
+- No accessibility considerations (a11y)
 
 Architecture-Specific Red Flags:
-UI_REMOTE_DB_NO_BACKEND:
+- UI_REMOTE_DB_NO_BACKEND: Database credentials visible in source code, client-side security rules missing
+- UI_BACKEND_DB: Missing backend documentation, no API error handling, backend not containerized
+- STANDALONE_UI: No data persistence strategy, localStorage used without fallbacks
 
-Database credentials visible in source code
+Step 4: Output Format
 
-UI_BACKEND_DB:
-
-Missing backend documentation or setup instructions
-
-Step 3: Output Format
-Project Health Report Card
-⚡ PROJECT HEALTH CHECK
-=======================
+⚡ ARCHITECTURE HEALTH CHECK
+============================
+Platform: [DETECTED_PLATFORM]
 Architecture: [DETECTED_ARCHITECTURE]
 Issues Found: [X]/[X] checks
 🔴 Critical: [X]
 🟠 High: [X]  
 🟡 Medium: [X]
 
-Project Health Score: [A/B/C/D/F][+/-]
+Architecture Health Score: [A/B/C/D/F][+/-]
 Quick Fix Time: ~[X] minutes
-Top Issues Found
-For each issue, include:
-[SEVERITY] [Issue Title]
 
+Top Issues Found
+[For each issue:]
+
+[SEVERITY] [Issue Title]
 Problem: [1 sentence explanation]
-AI Fix Prompt: "[Copy-pasteable prompt for AI coding tools]"
+AI Fix Prompt: "[Platform-appropriate prompt]"
 Time: ~[X] minutes
 
+Platform-Specific AI Fix Prompt Guidelines:
+
+REACT_NATIVE_EXPO:
+- Reference Expo SDK and React Native APIs
+- Use expo-* packages where appropriate
+- Mention proper mobile patterns (SafeAreaView, FlatList, etc.)
+- Include error handling and loading states
+
+CAPACITOR_WEB:
+- Reference Capacitor plugins for native features
+- Keep web code patterns (React + Tailwind)
+- Mention responsive mobile design
+- Include viewport and touch optimization
+
 Ready for More?
-✅ This quick check found [X] issues in 30 seconds.
-Want the complete professional audit? Run the full suite for:
+✅ This quick check found [X] architecture issues in 30 seconds.
 
-🔒 Security Audit - 20+ vulnerability checks (API keys, validation, file uploads, etc.)
-📊 Code Quality Review - Component organization and maintainability analysis
-⚡ Performance Analysis - Bundle size, loading speed, and mobile optimization
-📱 Mobile Layout Check - Device compatibility and touch interface review
-🚀 Deployment Readiness - Production config and app store preparation
-
-Total: 100+ professional-grade checks to make your app production-ready
+Want to check if you're ready to publish?
+🚀 Run APP_STORE_READINESS_AUDIT to see what you need before submitting to app stores
 
 Instructions for AI:
-
-Detect architecture first
-Run 6-8 basic project hygiene checks - focus on fundamental gaps almost all projects have
-Always find 4-7 issues - version control, documentation, environment setup, dead code
-Write actionable AI fix prompts:
-
-Be specific about files to create/modify
-Reference project patterns they're already using
-Keep prompts under 2 sentences
-
-
-Keep fixes achievable - 2-10 minute tasks, not hours of work
-Hook them for the full suite - mention specific audit capabilities
-Use encouraging tone - focus on quick wins and professional setup
-
-AI Fix Prompt Guidelines:
-
-Start with action: "Create...", "Remove...", "Add...", "Update..."
-Be specific about what to implement
-Reference their existing code patterns when possible
-Focus on immediate, visible improvements
+1. Detect platform first (Step 1)
+2. Detect architecture (Step 2)
+3. Run universal checks + platform-specific checks
+4. Tailor AI fix prompts to the detected platform
+5. Report actual issues found - if a check passes, mark it as ✅ passing
+6. If all checks pass, celebrate it! Show Architecture Health Score: A+ and "No issues found"
+7. The audit should be completeable - don't invent problems that don't exist
