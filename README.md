@@ -88,6 +88,8 @@ Want to know when new React Native tools and guides launch?
 
 Built by [Marcus Erickson](https://github.com/marcus-erickson),Experienced developer and AI coder. I have shipped multiple React Native apps and built these tools from real-world pain points.
 
+Check out our blog for articles on vibe coding with a focus on getting apps shipped with quality at (https://thundergodsoftware.substack.com/)
+
 Part of [Thunder God Software](https://marcus-erickson.github.io) - developer tools that bridge the gap from AI prototype to production-ready app.
 
 ## License
