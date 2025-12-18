@@ -69,12 +69,13 @@ Just copy, paste, fix. No thinking required.
 
 For a comprehensive pre-launch audit:
 
-**[React Project Checkup Toolkit - Deep Audit](https://marcus-erickson.github.io)** ($29)
+**[React Project Checkup Toolkit - Deep Audit](https://marcus-erickson.github.io)** ($49)
 - 🔒 **Security Audit** - 20+ vulnerability checks (API keys, validation, file uploads)
 - 📊 **Code Quality Review** - Component organization and maintainability
 - ⚡ **Performance Analysis** - Bundle size, loading speed, mobile optimization
 - 📱 **Mobile Layout Check** - Device compatibility and touch interfaces
 - 🚀 **Deployment Readiness** - Production config and app store requirements
+- and more....
 
 **100+ professional checks** to make your app production-ready.
 
