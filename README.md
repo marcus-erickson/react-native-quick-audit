@@ -1,6 +1,6 @@
 # React Native Quick Audit
 
-A free, AI-powered health check that scans your React Native app in **30 seconds** and finds 4-7 critical issues—complete with copy-paste AI fix prompts.
+A free, AI-powered health check that scans your React Native app in **30 seconds** and finds critical issues—complete with copy-paste AI fix prompts.
 
 ## What Makes This Different
 
