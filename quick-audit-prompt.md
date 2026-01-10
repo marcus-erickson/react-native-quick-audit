@@ -1,4 +1,4 @@
-Quick Audit (QUICK_AUDIT)
+Quick Audit
 
 Step 1: Platform Detection
 Scan for these indicators to determine mobile platform:
@@ -113,10 +113,10 @@ CAPACITOR_WEB:
 - Include viewport and touch optimization
 
 Ready for More?
-✅ This quick check found [X] architecture issues in 30 seconds.
+✅ This quick audit found [X] architecture issues in 30 seconds.
 
 Want to check if you're ready to publish?
-🚀 Run APP_STORE_READINESS_AUDIT to see what you need before submitting to app stores
+🚀 Check our our full audit toolkit at https://marcus-erickson.github.io
 
 Instructions for AI:
 1. Detect platform first (Step 1)
