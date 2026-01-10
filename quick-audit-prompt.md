@@ -1,4 +1,4 @@
-Quick Architecture Audit (QUICK_ARCHITECTURE_AUDIT)
+Quick Audit (QUICK_AUDIT)
 
 Step 1: Platform Detection
 Scan for these indicators to determine mobile platform:
@@ -78,7 +78,7 @@ Architecture-Specific Red Flags:
 
 Step 4: Output Format
 
-⚡ ARCHITECTURE HEALTH CHECK
+⚡ QUICK AUDIT REPORT CARD
 ============================
 Platform: [DETECTED_PLATFORM]
 Architecture: [DETECTED_ARCHITECTURE]
@@ -88,7 +88,7 @@ Issues Found: [X]/[X] checks
 🟡 Medium: [X]
 
 Architecture Health Score: [A/B/C/D/F][+/-]
-Quick Fix Time: ~[X] minutes
+Fix Time: ~[X] minutes
 
 Top Issues Found
 [For each issue:]
